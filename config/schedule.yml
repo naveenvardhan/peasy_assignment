@@ -1,0 +1,11 @@
+# cron: "0 * * * *" This will run for every hour
+import_users:
+  cron: "*/5 * * * *"
+  class: "UserImportWorker"
+  queue: default
+
+log_daily_reports:
+  cron: "59 23 * * *"
+  class: "DailyReportWorker"
+  queue: default
+  
