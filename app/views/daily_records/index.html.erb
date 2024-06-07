@@ -1,0 +1,26 @@
+<h1>Report Summary</h1>
+<br>
+<h3>Total Male Users: <%= @total_male_count %></h3>
+<h3>Total Female Users: <%= @total_female_count %></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Male Count</th>
+      <th>Female Count</th>
+      <th>Male Average Age</th>
+      <th>Female Average Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @daily_records.each do |record| %>
+      <tr>
+        <td><%= record.date %></td>
+        <td><%= record.male_count %></td>
+        <td><%= record.female_count %></td>
+        <td><%= record.male_avg_age.round(2) %></td>
+        <td><%= record.female_avg_age.round(2) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
