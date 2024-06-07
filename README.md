@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hi and Welcome!
 
-Things you may want to cover:
+Steps to use this application
 
-* Ruby version
+1. bundle install
 
-* System dependencies
+2. setup postgres in your system and define login credentials in database.yml and run these commands.
+    rails db:create
+    rails db:migrate
+   
+3. check these workers, Start sidekiq server and trigger them to test in rails console
 
-* Configuration
+    bundle exec sidekiq
+    UserImportWorker.perform_async
+    DailyReportWorker.perform_async
 
-* Database creation
+4. Start rails server to view the UI
 
-* Database initialization
+   rails s
 
-* How to run the test suite
+   # Users list
+   http://localhost:3000/
 
-* Services (job queues, cache servers, search engines, etc.)
+   # Report
+   http://localhost:3000/daily_records
 
-* Deployment instructions
-
-* ...
